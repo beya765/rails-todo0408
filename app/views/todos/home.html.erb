@@ -1,0 +1,18 @@
+<h1>Todosへなちょこアプリ</h1>
+<div>
+  <%= form_for(@todo, url: create_path) do |t|  %>
+    <%= t.text_field :msg, placeholder: "何か入れろ" %>
+    <%= t.submit %>
+  <% end %>
+</div>
+<br>
+<div>
+  <% if @todos %>
+    <% @todos.each do |todo|  %>
+    <div>
+      <%= todo.msg %>
+      <%= link_to "削除", "delete/#{todo.id}", method: :delete %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
